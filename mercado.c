@@ -53,26 +53,24 @@ void data(void)
     printf("\t\t\t      Dia %02d/%02d/%d (%s) %02d:%02d:%02d Horas \n", dataDeCadastro.dia, dataDeCadastro.mes, dataDeCadastro.ano, ds[tempo.tm_wday], dataDeCadastro.h, dataDeCadastro.m, dataDeCadastro.s);
 }
 
+void salvarDataDeCadastroNoVetorProdutos(Produto *p[], int posicao)
+{
+    // GERAR DATA E HORA ATUAL
+    struct tm tempo;
+    time_t tempoSeg;
+    time(&tempoSeg);
+    tempo = *localtime(&tempoSeg);
+    struct dataAtual minhaData;
+    minhaData.dia = tempo.tm_mday;
+    minhaData.mes = tempo.tm_mon + 1;
+    minhaData.ano = tempo.tm_year + 1900;
+    minhaData.h = tempo.tm_hour;
+    minhaData.m = tempo.tm_min;
+    minhaData.s = tempo.tm_sec;
 
-void registro() {
-
-    time_t now;
-    struct tm *tm_now;
-    char texto[40];
-
-    time(&now);
-    tm_now = localtime(&now);
-    strftime(texto, sizeof(texto), "\n\t\t\t\t   %d/%m/%Y    %H:%M:%S \n", tm_now);
-    printf("%s", texto);
-
-    return 0;
+    // SALVAR DATA NO VETOR DE PRODUTOS
+    p[posicao]->dataDeCadastro = minhaData;
 }
-
-
-
-
-
-
 
 void inicializar(Produto *p[], int tam)
 {
@@ -100,33 +98,15 @@ void cadastrar(Produto *p[], int posicao)
     printf("\tDigite Preco:               ");
     scanf("%lf", &p[posicao]->preco);
     fflush(stdin);
-    // ========== IMPORTANTE ===========
-    // GERAR DATA
-    char ds[7][4] = {"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"};
-    struct tm tempo;
-    time_t tempoSeg;
-    time(&tempoSeg);
-    tempo = *localtime(&tempoSeg);
-    struct dataAtual minhaData;
-    minhaData.dia = tempo.tm_mday;
-    minhaData.mes = tempo.tm_mon + 1;
-    minhaData.ano = tempo.tm_year + 1900;
-    minhaData.h = tempo.tm_hour;
-    minhaData.m = tempo.tm_min;
-    minhaData.s = tempo.tm_sec;
-
-    // ========== IMPORTANTE ===========
-    // SALVAR DATA NO VETOR DE PRODUTOS
-    p[posicao]->dataDeCadastro = minhaData;
+    salvarDataDeCadastroNoVetorProdutos(p, posicao);
     printf("\n");
-    registro();
     printf("\n\t\t\t\t     CADASTRO REALIZADO! \n");
     data();
     printf("\n");
 }
 void listar(Produto *p[], int posicao)
 {
-        for (int i = 0; i < posicao; i++)
+    for (int i = 0; i < posicao; i++)
     {
         printf("\n\t\tCADASTRO NUMERO:         %d \n", i + 1);
         printf("\t\tCodigo do Produto:       %d \n", p[i]->codigo);
@@ -154,8 +134,10 @@ void encontrar(Produto *p[], int codigoProduto, int posicao)
             printf("\t\tDescricao do Produto:    %s \n", p[i]->descricao);
             printf("\t\tFornecedor do Produto:   %s \n", p[i]->fornecedor);
             printf("\t\tPreco do Produto:        %.2lf \n", p[i]->preco);
+            printf("\t\tQuantidade no Estoque:   %d\n", p[i]->estoque);
             printf("\n");
-            printf("\t\t***********************************\n");
+            printf("\t\tCADASTRO REALIZADO NO DIA %02d/%02d/%d %02d:%02d:%02d HORAS \n", p[i]->dataDeCadastro.dia, p[i]->dataDeCadastro.mes, p[i]->dataDeCadastro.ano, p[i]->dataDeCadastro.h, p[i]->dataDeCadastro.m, p[i]->dataDeCadastro.s);
+            printf("\t\t********************************\n");
             printf("\n");
             return;
         }
@@ -192,7 +174,7 @@ void vender(Produto *p[], int codigoProduto, int posicao, int venda)
         {
             if (venda > p[i]->estoque)
             {
-                printf("\n\t\   tQUANTIDADE SOLICITADA SEM ESTOQUE\n");
+                printf("\n\t\t   QUANTIDADE SOLICITADA SEM ESTOQUE\n");
                 printf("\t\t  ESTOQUE ATUAL:   %.2d \n", p[i]->estoque);
                 return;
             }

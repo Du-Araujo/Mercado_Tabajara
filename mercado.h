@@ -1,7 +1,6 @@
 #ifndef MERCADO_H_INCLUDED
 #define MERCADO_H_INCLUDED
 
-
 void logo(void);
 
 struct dataAtual
@@ -18,14 +17,13 @@ struct produto
     int estoque;
     double preco;
     struct dataAtual dataDeCadastro;
-    char registroCadastro;
 };
+
+typedef struct produto Produto;
 
 void data(void);
 
-void registro(void);
-
-typedef struct produto Produto;
+void salvarDataDeCadastroNoVetorProdutos(Produto *p[], int posicao);
 
 void inicializar(Produto *p[], int tam);
 
@@ -38,6 +36,5 @@ void encontrar(Produto *p[], int codigoProduto, int posicao);
 void comprar(Produto *p[], int codigoProduto, int posicao, int compra);
 
 void vender(Produto *p[], int codigoProduto, int posicao, int venda);
-
 
 #endif // MERCADO_H_INCLUDED
