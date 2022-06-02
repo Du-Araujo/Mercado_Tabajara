@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1654171213 source:c:\users\duzin\onedrive\Área de trabalho\fatec\2º semestre\linguagem de programação\codido ultima prova - carrinho mercado\projeto_mercado_tabajara\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<locale.h>
+	"mercado.h"
+	<time.h>
+
+1654133416 c:\users\duzin\onedrive\Área de trabalho\fatec\2º semestre\linguagem de programação\codido ultima prova - carrinho mercado\projeto_mercado_tabajara\mercado.h
+
+1654173149 source:c:\users\duzin\onedrive\Área de trabalho\fatec\2º semestre\linguagem de programação\codido ultima prova - carrinho mercado\projeto_mercado_tabajara\mercado.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	"mercado.h"
+	<time.h>
+
