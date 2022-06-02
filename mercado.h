@@ -19,11 +19,11 @@ struct produto
     struct dataAtual dataDeCadastro;
 };
 
+typedef struct produto Produto;
+
 void data(void);
 
-void registro(void);
-
-typedef struct produto Produto;
+void salvarDataDeCadastroNoVetorProdutos(Produto *p[], int posicao);
 
 void inicializar(Produto *p[], int tam);
 

@@ -17,7 +17,6 @@ int main()
     int opcao = 0;
     int compra = 0, venda = 0;
     int posicao = 0, codigoProduto = 0;
-    int dataCompra;
     Produto *vetorProduto[TAM];
     inicializar(vetorProduto, TAM);
     void logo(void);
@@ -88,6 +87,8 @@ int main()
             scanf("%d", &venda);
 
             vender(vetorProduto, codigoProduto, posicao, venda);
+            printf("O produto foi vendido: ");
+            data();
             break;
         case 9:
             system("color 13");
