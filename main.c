@@ -39,9 +39,9 @@ int main()
         printf("\t\t\t\t  5  -  VENDER \n");
         printf("\t\t\t\t  9  -  SAIR \n\n");
         printf("\t\t\t\t   DIGITE OPCAO DESEJADA: ");
-        opcao = getch() - 48;                                        // Foi usado o get para leitura rapida de op��o
+        opcao = getch() - 48;                                        // Foi usado o get para leitura rapida de opcao
         system("cls");                                               // Limpeza de Tela
-        printf("\n\n\t\t\t\t    OPCAO SELECIOANADA: %d\n\n", opcao); // Imprime a opção selecionada
+        printf("\n\n\t\t\t\t    OPCAO SELECIOANADA: %d\n\n", opcao); // Imprime a opcao selecionada
         switch (opcao)
         {
         case 1:

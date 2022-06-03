@@ -11,21 +11,25 @@ void logo(void)
     printf("    =============================================================================================");
     printf("\n");
     printf("\n");
-    printf("    *             #     # ####### ######   #####     #    ######  #######                      * \n");
-    printf("    *             ##   ## #       #     # #     #   # #   #     # #     #                      * \n");
-    printf("    *             # # # # #       #     # #        #   #  #     # #     #                      *\n");
-    printf("    *             #  #  # #####   ######  #       #     # #     # #     #                      * \n");
-    printf("    *             #     # #       #   #   #       ####### #     # #     #                      * \n");
-    printf("    *             #     # #       #    #  #     # #     # #     # #     #                      * \n");
-    printf("    *             #     # ####### #     #  #####  #     # ######  #######                      * \n");
-    printf("                                                                                               *\n");
-    printf("    *                                                                                          *\n");
-    printf("    *         TTTTTTT   AAA   BBBBB     AAA       JJJ   AAA   RRRRRR    AAA                    * \n");
-    printf("    *           TTT    AAAAA  BB   B   AAAAA      JJJ  AAAAA  RR   RR  AAAAA                   * \n");
-    printf("    *           TTT   AA   AA BBBBBB  AA   AA     JJJ AA   AA RRRRRR  AA   AA                  * \n");
-    printf("    *           TTT   AAAAAAA BB   BB AAAAAAA JJ  JJJ AAAAAAA RR  RR  AAAAAAA                  * \n");
-    printf("    *           TTT   AA   AA BBBBBB  AA   AA  JJJJJ  AA   AA RR   RR AA   AA                  * \n");
-    printf("\n");
+    printf("    *             #     # ####### ######   #####     #    ######  #######                       * \n");
+    printf("    *             ##   ## #       #     # #     #   # #   #     # #     #                       * \n");
+    printf("    *             # # # # #       #     # #        #   #  #     # #     #                       *\n");
+    printf("    *             #  #  # #####   ######  #       #     # #     # #     #                       * \n");
+    printf("    *             #     # #       #   #   #       ####### #     # #     #                       * \n");
+    printf("    *             #     # #       #    #  #     # #     # #     # #     #                       * \n");
+    printf("    *             #     # ####### #     #  #####  #     # ######  #######                       * \n");
+    printf("    *                                                                                           *\n");
+    printf("    *                                                                                           *\n");
+    printf("    *         TTTTTTT   AAA   BBBBB     AAA       JJJ   AAA   RRRRRR    AAA                     * \n");
+    printf("    *           TTT    AAAAA  BB   B   AAAAA      JJJ  AAAAA  RR   RR  AAAAA                    * \n");
+    printf("    *           TTT   AA   AA BBBBBB  AA   AA     JJJ AA   AA RRRRRR  AA   AA                   * \n");
+    printf("    *           TTT   AAAAAAA BB   BB AAAAAAA JJ  JJJ AAAAAAA RR  RR  AAAAAAA                   * \n");
+    printf("    *           TTT   AA   AA BBBBBB  AA   AA  JJJJJ  AA   AA RR   RR AA   AA                   * \n");
+    printf("    *                                                                                           *\n");
+    printf("    *                                                                Desenvolvido por:          *\n");
+    printf("    *                                                                      Eduardo Araujo       *\n");
+    printf("    *                                                                      Rafael Felipe        *\n");
+    printf("    *                                                                      Ramias Lopes         *\n");
     printf("    =============================================================================================");
     printf("\n");
     printf("\n");
@@ -161,7 +165,7 @@ void comprar(Produto *p[], int codigoProduto, int posicao, int compra)
 
             p[i]->estoque += compra ;
 
-            printf("\n\t\tProduto:                      %s\n", p[i]->descricao);
+            printf("\n\t\tCodigo Produto:                      %s\n", p[i]->descricao);
             printf("\t\tValor final da compra:        %.2lf \n", p[i]->preco * compra);
             printf("\t\tQuantidade final do estoque:  %.2d \n", p[i]->estoque);
             printf("\n");
@@ -192,7 +196,7 @@ void vender(Produto *p[], int codigoProduto, int posicao, int venda)
             else
             {
                 p[i]->estoque -= venda;
-                printf("\n\t\tProduto:                      %s\n", p[i]->descricao);
+                printf("\n\t\tCodigo Produto                      %s\n", p[i]->descricao);
                 printf("\t\tValor final da venda:         %.2lf \n", (p[i]->preco * 0.30 + p[i]->preco) * venda); // lucro de 30%
                 printf("\t\tQuantidade final do estoque:  %.2d \n", p[i]->estoque);
                 printf("\n");
