@@ -30,6 +30,7 @@ void logo(void)
     printf("    *                                                                      Eduardo Araujo       *\n");
     printf("    *                                                                      Rafael Felipe        *\n");
     printf("    *                                                                      Ramias Lopes         *\n");
+    printf("\n");
     printf("    =============================================================================================");
     printf("\n");
     printf("\n");
@@ -87,16 +88,16 @@ void inicializar(Produto *p[], int tam)
 void cadastrar(Produto *p[], int posicao)
 {
     p[posicao] = (Produto *)malloc(sizeof(struct produto));
-    printf("\n\tDigite Codigo Produto:      ");
+    printf("\n\t\tCodigo Produto:      ");
     scanf("%d", &p[posicao]->codigo);
     fflush(stdin);
-    printf("\tDigite Descricao Produto:   ");
+    printf("\t\tDescricao Produto:   ");
     scanf("%[^\n]", p[posicao]->descricao);
     fflush(stdin);
-    printf("\tDigite Nome Fornecedor:     ");
+    printf("\t\tNome Fornecedor:     ");
     scanf("%[^\n]", p[posicao]->fornecedor);
     fflush(stdin);
-    printf("\tDigite Preco:               ");
+    printf("\t\tPreco:          R$   ");
     scanf("%lf", &p[posicao]->preco);
     fflush(stdin);
     salvarDataDeCadastroNoVetorProdutos(p, posicao);
@@ -116,7 +117,7 @@ void listar(Produto *p[], int posicao)
             printf("\t\tCodigo do Produto:       %d \n", p[i]->codigo);
             printf("\t\tDescricao do Produto:    %s \n", p[i]->descricao);
             printf("\t\tFornecedor do Produto:   %s \n", p[i]->fornecedor);
-            printf("\t\tPreco do Produto:        %.2lf \n", p[i]->preco);
+            printf("\t\tPreco do Produto:  R$    %.2lf \n", p[i]->preco);
             printf("\t\tQuantidade no Estoque:   %d\n", p[i]->estoque);
             printf("\n");
             printf("\t\tCADASTRO REALIZADO NO DIA %02d/%02d/%d %02d:%02d:%02d HORAS \n", p[i]->dataDeCadastro.dia, p[i]->dataDeCadastro.mes, p[i]->dataDeCadastro.ano, p[i]->dataDeCadastro.h, p[i]->dataDeCadastro.m, p[i]->dataDeCadastro.s);
@@ -141,7 +142,7 @@ void encontrar(Produto *p[], int codigoProduto, int posicao)
             printf("\t\tCodigo do Produto:       %d \n", p[i]->codigo);
             printf("\t\tDescricao do Produto:    %s \n", p[i]->descricao);
             printf("\t\tFornecedor do Produto:   %s \n", p[i]->fornecedor);
-            printf("\t\tPreco do Produto:        %.2lf \n", p[i]->preco);
+            printf("\t\tPreco do Produto:  R$    %.2lf \n", p[i]->preco);
             printf("\t\tQuantidade no Estoque:   %d\n", p[i]->estoque);
             printf("\n");
             printf("\t\tCADASTRO REALIZADO NO DIA %02d/%02d/%d %02d:%02d:%02d HORAS \n", p[i]->dataDeCadastro.dia, p[i]->dataDeCadastro.mes, p[i]->dataDeCadastro.ano, p[i]->dataDeCadastro.h, p[i]->dataDeCadastro.m, p[i]->dataDeCadastro.s);
@@ -166,7 +167,7 @@ void comprar(Produto *p[], int codigoProduto, int posicao, int compra)
             p[i]->estoque += compra ;
 
             printf("\n\t\tCodigo Produto:                      %s\n", p[i]->descricao);
-            printf("\t\tValor final da compra:        %.2lf \n", p[i]->preco * compra);
+            printf("\t\tValor final da compra:   R$   %.2lf \n", p[i]->preco * compra);
             printf("\t\tQuantidade final do estoque:  %.2d \n", p[i]->estoque);
             printf("\n");
             printf("\t\t**************************************\n");
