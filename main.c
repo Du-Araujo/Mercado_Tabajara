@@ -7,13 +7,14 @@
 #include <time.h>
 
 int main()
-{ // titulo
+{   // titulo
     system("title MERCADO TABAJARA");
 
     // Logo
     logo();
     data();
-    // Vari�veis
+
+    // Variáveis
     int opcao = 0;
     int compra = 0, venda = 0;
     int posicao = 0, codigoProduto = 0;
@@ -29,69 +30,72 @@ int main()
         printf("\n");
         printf("\n");
         system("color 7");
-        printf("\t\t\t\t   *   SISTEMA TABAJARA    *\n");
+        printf("\t\t\t\t  *   SISTEMA TABAJARA    *\n");
         printf("\n");
-        printf("\t\t\t\t   1  -  CADASTRAR PRODUTO \n");
-        printf("\t\t\t\t   2  -  LISTAR CADASTRO \n");
-        printf("\t\t\t\t   3  -  ENCONTRAR PRODUTO \n");
-        printf("\t\t\t\t   4  -  COMPRAR \n");
-        printf("\t\t\t\t   5  -  VENDER \n");
-        printf("\t\t\t\t   9  -  SAIR \n\n");
-        printf("\t\t\t\t    DIGITE OPCAO DESEJADA: ");
-
+        printf("\t\t\t\t  1  -  CADASTRAR PRODUTO \n");
+        printf("\t\t\t\t  2  -  LISTAR CADASTRO \n");
+        printf("\t\t\t\t  3  -  ENCONTRAR PRODUTO \n");
+        printf("\t\t\t\t  4  -  COMPRAR \n");
+        printf("\t\t\t\t  5  -  VENDER \n");
+        printf("\t\t\t\t  9  -  SAIR \n\n");
+        printf("\t\t\t\t   DIGITE OPCAO DESEJADA: ");
         opcao = getch() - 48;                                        // Foi usado o get para leitura rapida de op��o
         system("cls");                                               // Limpeza de Tela
-        printf("\n\n\t\t\t\t    OPCAO SELECIOANADA: %d\n\n", opcao); // Imprime a op�ao selecionada
+        printf("\n\n\t\t\t\t    OPCAO SELECIOANADA: %d\n\n", opcao); // Imprime a opção selecionada
         switch (opcao)
         {
         case 1:
             system("color 3");
+            // Exibir data atual
             data();
+            printf("\t\t\t\t\t  CADASTRO\n");
             cadastrar(vetorProduto, posicao);
             posicao++;
 
             break;
         case 2:
-            system("color 5");
+            system("color 7");
             // Exibir data atual
             data();
+            printf("\t\t\t\t       LISTAR PRODUTOS\n");
             listar(vetorProduto, posicao);
             // Exibir de cadastro do produto
             break;
         case 3:
             system("color 6");
             data();
+            printf("\t\t\t\t     ENCONTRAR PRODUTOS\n");
             printf("\n\t\tDigite Codigo Produto:   ");
             scanf("%d", &codigoProduto);
             encontrar(vetorProduto, codigoProduto, posicao);
-
-            //            printf("\t\tCompra Efetuada dia: %d", data());
             break;
         case 4:
-            system("color 7");
+            system("color 3");
             data();
+            printf("\t\t\t\t\t   COMPRAR\n");
             printf("\n\t\tDigite Codigo Produto:        ");
             scanf("%d", &codigoProduto);
+            encontrar(vetorProduto, codigoProduto, posicao);
             printf("\n\t\tDigite Quantidade COMPRA:     ");
             scanf("%d", &compra);
             comprar(vetorProduto, codigoProduto, posicao, compra);
-            printf("O produto foi comprado: ");
             data();
+            printf("\n");
             break;
         case 5:
             system("color 2");
             data();
+            printf("\t\t\t\t\t   VENDER\n");
             printf("\n\t\tDigite Codigo Produto:        ");
             scanf("%d", &codigoProduto);
+            encontrar(vetorProduto, codigoProduto, posicao);
             printf("\n\t\tDigite Quantidade VENDA:      ");
             scanf("%d", &venda);
-
             vender(vetorProduto, codigoProduto, posicao, venda);
-            printf("O produto foi vendido: ");
             data();
             break;
         case 9:
-            system("color 13");
+            system("color 9");
             logo();
             data();
             printf("\n\n\n\t\t\t\t     SISTEMA FINALIZADO!   \n\n");
