@@ -107,7 +107,6 @@ void cadastrar(Produto *p[], int posicao)
     printf("\n");
 }
 
-
 void listar(Produto *p[], int posicao)
 {
     if (posicao != 0){
@@ -123,7 +122,6 @@ void listar(Produto *p[], int posicao)
             printf("\t\tCADASTRO REALIZADO NO DIA %02d/%02d/%d %02d:%02d:%02d HORAS \n", p[i]->dataDeCadastro.dia, p[i]->dataDeCadastro.mes, p[i]->dataDeCadastro.ano, p[i]->dataDeCadastro.h, p[i]->dataDeCadastro.m, p[i]->dataDeCadastro.s);
             printf("\t\t***************************************************\n");
             printf("\n");
-
         }
     }else{
     system("color 4");
@@ -157,18 +155,15 @@ void encontrar(Produto *p[], int codigoProduto, int posicao)
 
 void comprar(Produto *p[], int codigoProduto, int posicao, int compra)
 {
-
-
     for (int i = 0; i < posicao; i++)
     {
         if (codigoProduto == p[i]->codigo)
         {
-
             p[i]->estoque += compra ;
 
-            printf("\n\t\tCodigo Produto:                      %s\n", p[i]->descricao);
+            printf("\n\t\tCodigo Produto:               %s\n", p[i]->descricao);
             printf("\t\tValor final da compra:   R$   %.2lf \n", p[i]->preco * compra);
-            printf("\t\tQuantidade final do estoque:  %.2d \n", p[i]->estoque);
+            printf("\t\tQuantidade atual do estoque:  %.2d \n", p[i]->estoque);
             printf("\n");
             printf("\t\t**************************************\n");
             printf("\n");
@@ -189,7 +184,7 @@ void vender(Produto *p[], int codigoProduto, int posicao, int venda)
             if (venda > p[i]->estoque)
             {
                 system("color 4"),
-                printf("\n\t\t\t\t  QUANTIDADE SOLICITADA SEM ESTOQUE\n\n");
+                printf("\n\t\t\t\tQUANTIDADE SOLICITADA SEM ESTOQUE\n\n");
 
                 printf("\t\t  ESTOQUE ATUAL:   %.2d \n\n", p[i]->estoque);
                 return;
@@ -197,9 +192,9 @@ void vender(Produto *p[], int codigoProduto, int posicao, int venda)
             else
             {
                 p[i]->estoque -= venda;
-                printf("\n\t\tCodigo Produto                      %s\n", p[i]->descricao);
-                printf("\t\tValor final da venda:         %.2lf \n", (p[i]->preco * 0.30 + p[i]->preco) * venda); // lucro de 30%
-                printf("\t\tQuantidade final do estoque:  %.2d \n", p[i]->estoque);
+                printf("\n\t\tCodigo Produto                %s\n", p[i]->descricao);
+                printf("\t\tValor final da venda:    R$   %.2lf \n", (p[i]->preco * 0.30 + p[i]->preco) * venda); // lucro de 30%
+                printf("\t\tQuantidade atual do estoque:  %.2d \n", p[i]->estoque);
                 printf("\n");
                 printf("\t\t**************************************\n");
                 printf("\n");

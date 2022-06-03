@@ -9,11 +9,9 @@
 int main()
 {   // titulo
     system("title MERCADO TABAJARA");
-
     // Logo
     logo();
     data();
-
     // Variáveis
     int opcao = 0;
     int compra = 0, venda = 0;
@@ -21,11 +19,9 @@ int main()
     Produto *vetorProduto[TAM];
     inicializar(vetorProduto, TAM);
     void logo(void);
-
     // Imprimindo Menu
     do
     {
-
         fflush(stdin);
         printf("\n");
         printf("\n");
@@ -51,7 +47,6 @@ int main()
             printf("\t\t\t\t\t  CADASTRO\n");
             cadastrar(vetorProduto, posicao);
             posicao++;
-
             break;
         case 2:
             system("color 7");
@@ -104,7 +99,6 @@ int main()
             system("color 4");
             printf("\t\t\t\t      OPCAO INVALIDA!!! \n\n");
         }
-
         system("pause");
         system("cls");
     } while (opcao != 9);
