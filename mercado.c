@@ -161,11 +161,11 @@ void comprar(Produto *p[], int codigoProduto, int posicao, int compra)
         {
             p[i]->estoque += compra ;
 
-            printf("\n\t\tCodigo Produto:               %s\n", p[i]->descricao);
+            printf("\n\t\tDescricao Produto:            %s\n", p[i]->descricao);
             printf("\t\tValor final da compra:   R$   %.2lf \n", p[i]->preco * compra);
             printf("\t\tQuantidade atual do estoque:  %.2d \n", p[i]->estoque);
             printf("\n");
-            printf("\t\t**************************************\n");
+            printf("\t\t***************************************************\n");
             printf("\n");
             printf("\t                              COMPRA EFETUADA              \n  ");
             return;
@@ -192,11 +192,11 @@ void vender(Produto *p[], int codigoProduto, int posicao, int venda)
             else
             {
                 p[i]->estoque -= venda;
-                printf("\n\t\tCodigo Produto                %s\n", p[i]->descricao);
+                printf("\n\t\tDescricao Produto             %s\n", p[i]->descricao);
                 printf("\t\tValor final da venda:    R$   %.2lf \n", (p[i]->preco * 0.30 + p[i]->preco) * venda); // lucro de 30%
                 printf("\t\tQuantidade atual do estoque:  %.2d \n", p[i]->estoque);
                 printf("\n");
-                printf("\t\t**************************************\n");
+                printf("\t\t***************************************************\n");
                 printf("\n");
                 printf("\t                              VENDA EFETUADA              \n  ");
                 return;
