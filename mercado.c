@@ -150,7 +150,7 @@ void encontrar(Produto *p[], int codigoProduto, int posicao)
         }
     }
     system("color 4");
-    printf("\n\t\t\t\t    REGISTRO NAO ENCONTRADO!!! \n\n");
+    printf("\n\t\t\t\t  REGISTRO NAO ENCONTRADO!!! \n\n");
 }
 
 void comprar(Produto *p[], int codigoProduto, int posicao, int compra)
