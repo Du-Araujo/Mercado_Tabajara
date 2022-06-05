@@ -1,6 +1,7 @@
 #ifndef MERCADO_H_INCLUDED
 #define MERCADO_H_INCLUDED
 
+
 void logo(void);
 
 struct dataAtual
